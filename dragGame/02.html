@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./02.css">
+</head>
+
+<body>
+    <div class="title">请做好分类！</div>
+    <div class="box">
+        <div class="b1">
+            <h1 class="unit-a">Fruit</h1>
+            <ul>
+                <li id="li1" draggable="true" class="animal">🐒猴子</li>
+                <li id="li2" draggable="true" class="fruit">🍌香蕉</li>
+                <li id="li3" draggable="true" class="fruit">🍇葡萄</li>
+                <li id="li4" draggable="true" class="animal">🐻棕熊</li>
+                <li id="li5" draggable="true" class="fruit">🍊橙子</li>
+                <li id="li6" draggable="true" class="animal">🐱小猫</li>
+            </ul>
+        </div>
+
+        <div class="b2">
+            <h1 class="unit-a">Animal</h1>
+            <ul>
+                <li id="li7" draggable="true" class="animal">🐅老虎</li>
+                <li id="li8" draggable="true" class="fruit">🍎苹果</li>
+                <li id="li9" draggable="true" class="fruit">🍉西瓜</li>
+                <li id="li10" draggable="true" class="animal">🐘大象</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var lis = document.querySelectorAll("li");
+        var uls = document.querySelectorAll("div ul");
+        
+        function getName(names) {
+            uls[0].ondragover = function (event) {
+                if (names == "fruit") {
+                    event.preventDefault();
+                }
+            }
+            uls[1].ondragover = function (event) {
+                if (names == "animal") {
+                    event.preventDefault();
+                }
+            }
+        }
+
+        uls.forEach(function (item, index) {
+            item.ondrop = function (event) {
+                var data = event.dataTransfer.getData("Text");
+                this.appendChild(document.getElementById(data));
+            }
+        });
+
+        lis.forEach(function (item, index) {
+            item.ondragstart = function (event) {
+                var names = this.className;
+                getName(names);
+                event.dataTransfer.setData("Text", this.id);
+            }
+        });
+    </script>
+</body>
+
+</html>
