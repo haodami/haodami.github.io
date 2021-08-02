@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.staticfile.org/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./01.css">
+
+    <style>
+        audio {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <audio src="./music/1.mp3" controls></audio>
+
+    <div class="box">
+        <!-- 主体区域 -->
+        <div class="main">
+            <div class="content">
+                <!-- 显示区域 -->
+                <div class="track">
+                    <div class="musicName">Dawn</div>
+                    <div class="artist">Skylike - Dawn</div>
+                    <div class="time">
+                        <div class="start-time">00:00</div>
+                        <div class="end-time">00:49</div>
+                    </div>
+                    <div class="gundong">
+                        <input type="range" min="0" max="100" step="0.1" />
+                        <span class="tiao"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <!-- 播放区域 -->
+                <div class="player">
+                    <div class="record">
+                        <img src="./img/1.jpg">
+                    </div>
+                    <ul class="main-right">
+                        <li><i class="fa fa-backward"></i></li>
+                        <li><i class="fa fa-play"></i></li>
+                        <li><i class="fa fa-forward"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

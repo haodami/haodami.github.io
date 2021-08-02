@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+</head>
+
+<body>
+  <section class="box">
+    <form class="login">
+      <h1>登录</h1>
+      <div class="div-one">
+        <input type="email" placeholder="请输入电子邮箱" autocomplete="off" name="log" />
+        <i class="input-icon uil uil-at"></i>
+      </div>
+      <div class="div-one">
+        <input type="password" placeholder="请输入密码" />
+        <i class="input-icon uil uil-lock-alt"></i>
+      </div>
+      <button class="login-btn">登录</button>
+
+      <div class="info">
+        <span>没有帐号？<a href="javascript:" class="wu">立即注册</a></span>
+        <a href="javascript:">忘记密码？</a>
+      </div>
+    </form>
+
+    <form class="register">
+      <h1>注册</h1>
+      <div class="div-one">
+        <input type="text" placeholder="请输入用户名" />
+        <i class="input-icon uil uil-at"></i>
+      </div>
+      <div class="div-one">
+        <input type="email" placeholder="请输入电子邮箱" />
+        <i class="input-icon uil uil-at"></i>
+      </div>
+      <div class="div-one">
+        <input type="password" placeholder="请输入密码" />
+        <i class="input-icon uil uil-lock-alt"></i>
+      </div>
+
+      <button class="register-btn">注册</button>
+
+      <div class="info">
+        <span>已有帐号？<a href="javascript:" class="wu">立即登录</a></span>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    document.querySelectorAll(".box form .info .wu").forEach(function (item) {
+      // console.log(item);
+      item.addEventListener("click", function () {
+        // console.log(this);
+        document.querySelector(".box").classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+
+</html>

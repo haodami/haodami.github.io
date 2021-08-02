@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  background-color: #1f2029;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  perspective: 1200px;
+}
+body .box {
+  width: 440px;
+  height: 400px;
+  background-color: #2a2b38;
+  background-image: url("../img/pat.svg");
+  background-position: bottom center;
+  background-size: 300%;
+  border-radius: 5px;
+  position: relative;
+  transform-style: preserve-3d;
+  color: white;
+  transition: all 0.8s;
+}
+body .box.active {
+  transform: rotateY(180deg);
+}
+body .box form {
+  box-sizing: border-box;
+  padding: 20px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body .box form .div-one {
+  position: relative;
+}
+body .box form .div-one .input-icon {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: #ffeba7;
+}
+body .box form button {
+  outline: none;
+  border: none;
+}
+body .box form button.login-btn,
+body .box form button.register-btn {
+  border-radius: 5px;
+  padding: 0 30px;
+  height: 44px;
+  background-color: #ffeba7;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  cursor: pointer;
+  box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
+  transition: all 0.3s;
+  font-weight: 600;
+  color: #102770;
+}
+body .box form button.login-btn:hover,
+body .box form button.register-btn:hover {
+  background-color: #f3d97f;
+  box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
+}
+body .box form h1 {
+  text-align: center;
+  color: #c4c3ca;
+}
+body .box form a {
+  text-decoration: none;
+  color: #c4c3ca;
+}
+body .box form a:hover {
+  color: #ffeba7;
+}
+body .box form input {
+  display: block;
+  width: 80%;
+  background-color: #1f2029;
+  border: none;
+  outline: none;
+  margin: 10px auto;
+  line-height: 48px;
+  border-radius: 5px;
+  padding-left: 50px;
+  color: white;
+}
+body .box form input:focus {
+  background-color: white;
+  color: #1f2029;
+}
+body .box form .info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #c4c3ca;
+}
+body .box form.login {
+  transform: translateZ(50px);
+}
+body .box form.login h1 {
+  margin-bottom: 40px;
+}
+body .box form.register {
+  transform: translateZ(-50px) rotateY(180deg);
+}
+body .box form.register .info {
+  justify-content: center;
+}
+/*# sourceMappingURL=./login.css.map */

@@ -1,0 +1,184 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+@keyframes rotateImg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.box {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.box::before {
+  content: "";
+  display: block;
+  background-image: url("img/1.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(40px);
+  position: absolute;
+  transform: scale(1.2);
+  z-index: -2;
+  opacity: 0.51;
+}
+.box .main {
+  position: absolute;
+  width: 430px;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+.box .main .content {
+  position: relative;
+}
+.box .main .content .track {
+  position: absolute;
+  right: 15px;
+  left: 15px;
+  top: 0px;
+  padding: 13px 22px 16px 184px;
+  background-color: #fff7f7;
+  border-radius: 15px 15px 0 0;
+  transition: all 0.3s;
+  color: #f86d92;
+}
+.box .main .content .track.active {
+  top: -92px;
+}
+.box .main .content .track .title {
+  color: #54576f;
+  font-size: 17px;
+  font-weight: bold;
+}
+.box .main .content .track .names {
+  color: #acaebd;
+  font-size: 13px;
+  margin: 2px 0 10px 0;
+}
+.box .main .content .track .time {
+  overflow: hidden;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.box .main .content .track .time .start-time {
+  float: left;
+}
+.box .main .content .track .time .end-time {
+  float: right;
+}
+.box .main .content .track .gundong {
+  margin-top: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.box .main .content .track .gundong input {
+  position: absolute;
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 4px;
+  opacity: 0;
+  z-index: 9;
+}
+.box .main .content .track .gundong .tiao {
+  width: 30%;
+  height: 4px;
+  display: block;
+  background-color: #ffe8ee;
+}
+.box .main .content .track .gundong .dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #acaebd;
+  display: block;
+  bottom: 0;
+  left: 30%;
+  top: -2px;
+  margin-left: -5px;
+}
+.box .main .content .player {
+  position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+}
+.box .main .content .player .record {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 40px;
+  top: -40px;
+  box-shadow: 0 0 0 10px #fff;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.box .main .content .player .record.active {
+  top: -60px;
+  box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
+}
+.box .main .content .player .record.active img {
+  animation-play-state: running;
+}
+.box .main .content .player .record::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #d6dee7;
+  box-shadow: inset 0 0 0 2px #fff;
+  z-index: 2;
+}
+.box .main .content .player .record img {
+  width: 100%;
+  height: 100%;
+  animation: rotateImg 3s linear 0s infinite;
+  animation-play-state: paused;
+}
+.box .main .content .player ul.main-right {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+.box .main .content .player ul.main-right li {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d6d6de;
+  font-size: 26px;
+  margin-right: 10px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.box .main .content .player ul.main-right li:hover {
+  color: white;
+  background-color: #d6d6de;
+}
+/*# sourceMappingURL=./01.css.map */
