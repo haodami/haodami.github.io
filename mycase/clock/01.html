@@ -18,14 +18,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to left, #b92b27, #1565c0);
-            opacity: 0.8;
+            position: relative;
+        }
+
+        .box .bg {
+            height: 100%;
+            width: 100%;
+            background-color: #4158D0;
+            background-image: linear-gradient(180deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            opacity: 0.6;
+            position: absolute;
+        }
+
+        .box canvas {
+            z-index: 5;
+            position: absolute;
         }
     </style>
 </head>
 
 <body>
     <div class="box">
+        <div class="bg"></div>
         <canvas width="700" height="100"></canvas>
     </div>
 
@@ -35,17 +49,17 @@
         var h = canvas.height;
         var R = (h / 20) - 1;
 
-        var lg = cxt.createLinearGradient(0, 0, 300, 300);
-        lg.addColorStop(0, "#f05053");
-        lg.addColorStop(1, "#e1eec3");
+        var lg = cxt.createLinearGradient(0, 240, 0, 0);
+        lg.addColorStop(0, "#FFE53B");
+        lg.addColorStop(1, "#FF2525");
         cxt.fillStyle = lg;
 
         // 获取矩阵数字并显示再画布上
         function renderDigit(num, index) {
             // 遍历二维数组
-            arr[num].forEach(function (row, rowIndex) {
+            arr[num].forEach((row, rowIndex) => {
                 // 遍历一维数组
-                row.forEach(function (col, colIndex) {
+                row.forEach((col, colIndex) => {
                     // 渲染填充
                     if (col == 1) {
                         cxt.beginPath();
@@ -66,7 +80,7 @@
             data.push(time[1], time[2], 10, time[3], time[4], 10, time[5], time[6]);
             // 渲染时钟
             cxt.clearRect(0, 0, 700, 700);
-            data.forEach(function (num, index) {
+            data.forEach((num, index) => {
                 renderDigit(num, index);
             });
         }
@@ -75,7 +89,7 @@
         digitTime();
         // 设置定时器变化时间
         clearInterval(timer);
-        var timer = setInterval(function () {
+        var timer = setInterval(() => {
             digitTime();
         }, 500);
 
