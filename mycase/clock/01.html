@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./map.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to left, #b92b27, #1565c0);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <canvas width="700" height="100"></canvas>
+    </div>
+
+    <script>
+        var canvas = document.querySelector("canvas");
+        var cxt = canvas.getContext("2d");
+        var h = canvas.height;
+        var R = (h / 20) - 1;
+
+        var lg = cxt.createLinearGradient(0, 0, 300, 300);
+        lg.addColorStop(0, "#f05053");
+        lg.addColorStop(1, "#e1eec3");
+        cxt.fillStyle = lg;
+
+        // 获取矩阵数字并显示再画布上
+        function renderDigit(num, index) {
+            // 遍历二维数组
+            arr[num].forEach(function (row, rowIndex) {
+                // 遍历一维数组
+                row.forEach(function (col, colIndex) {
+                    // 渲染填充
+                    if (col == 1) {
+                        cxt.beginPath();
+                        cxt.arc(index * 84 + colIndex * 2 * (R + 1) + (R + 1), rowIndex * 2 * (R + 1) + (R + 1), R, 0, 2 * Math.PI);
+                        cxt.closePath();
+                        cxt.fill();
+                    }
+                });
+            });
+        }
+
+        // 获取时间戳
+        function digitTime() {
+            // 正则获取时间数字
+            var time = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+            var data = [];
+            //存储时间数字
+            data.push(time[1], time[2], 10, time[3], time[4], 10, time[5], time[6]);
+            // 渲染时钟
+            cxt.clearRect(0, 0, 700, 700);
+            data.forEach(function (num, index) {
+                renderDigit(num, index);
+            });
+        }
+
+        // 调用时间戳函数
+        digitTime();
+        // 设置定时器变化时间
+        clearInterval(timer);
+        var timer = setInterval(function () {
+            digitTime();
+        }, 500);
+
+    </script>
+</body>
+
+</html>
