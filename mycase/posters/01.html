@@ -31,7 +31,7 @@
         var w = window.innerWidth;
         var h = window.innerHeight;
 
-        window.onmousemove = function (event) {
+        window.onmousemove = (event) => {
             var x = event.pageX;
             var y = event.pageY;
             // console.log(w,h);
@@ -40,7 +40,7 @@
             bg.style.transform = `rotateX(${(-2 / (h / 2)) * (w / 2 - y)}deg) rotateY(${(-2 / (w / 2)) * (h / 2 - x)}deg)`;
             shine.style.transform = `rotateX(${(-2 / (h / 2)) * (w / 2 - y)}deg) rotateY(${(-2 / (w / 2)) * (h / 2 - x)}deg)`;
 
-            imgs.forEach(function (item) {
+            imgs.forEach((item) => {
                 item.style.transform = `translateX(${(3 / (w / 2)) * (w / 2 - x)}px) translateY(${(3 / (h / 2)) * (h / 2 - y)}px)`;
             });
 
