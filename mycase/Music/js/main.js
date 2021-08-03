@@ -19,26 +19,27 @@ var paly = document.querySelector(".fa-play");
 var track = document.querySelector(".track");
 
 // 点击切换暂停播放
-paly.onclick = function () {
-    if (this.className == "fa fa-play") {
+paly.onclick = () => {
+    // console.log(this);
+    if (paly.className == "fa fa-play") {
         audio.play();
-        this.className = "fa fa-pause";
+        paly.className = "fa fa-pause";
     }
     else {
         audio.pause();
-        this.className = "fa fa-play";
+        paly.className = "fa fa-play";
     }
 }
 
 // 播放时的效果
-audio.onplay = function () {
+audio.onplay = () => {
     record.classList.add("active");
     track.classList.add("active");
     paly.className = "fa fa-pause";
 };
 
 // 暂停时的效果
-audio.onpause = function () {
+audio.onpause = () => {
     record.classList.remove("active");
     track.classList.remove("active");
     paly.className = "fa fa-play";
@@ -55,7 +56,7 @@ var eTime = document.querySelector(".end-time");
 function playArticle() {
     // 拖动时播放条动，音乐不停止
     var con = false;
-    input.oninput = function (event) {
+    input.oninput = (event) => {
         var v = event.target.value;
         // console.log(v);
         tiao.style.width = `${v}%`;
@@ -63,13 +64,13 @@ function playArticle() {
         con = true;
     };
     // 拖到对应位置播放音乐
-    input.onchange = function (event) {
+    input.onchange = (event) => {
         var v = event.target.value;
         audio.currentTime = (v / 100) * audio.duration;
         con = false;
     };
     // 播放条滚动
-    audio.ontimeupdate = function () {
+    audio.ontimeupdate = () => {
         if (!con) {
             // console.log(audio.currentTime, audio.duration);
             // console.log((audio.currentTime / audio.duration) * 100);
@@ -81,6 +82,7 @@ function playArticle() {
         }
 
         // 音乐播放修改对应时间
+        // console.log(Math.floor(audio.currentTime));
         if (audio.currentTime < 10) {
             sTime.innerHTML = `00:0${Math.floor(audio.currentTime)}`;
         }
@@ -101,10 +103,18 @@ function playArticle() {
             }
         }
 
-        // 歌曲总时长,一秒后读取
-        setTimeout(function () {
-            eTime.innerHTML = `0${parseInt(audio.duration / 60)}:${parseInt(audio.duration % 60)}`;
-        }, 1000);
+        // 歌曲总时长
+        setTimeout(() => {
+            var eMinent = parseInt(audio.duration / 60);
+            var eSec = audio.duration % 60;
+            // console.log(eMinent, eSec);
+            if (eMinent < 10) {
+                eTime.innerHTML = `0${eMinent}:${parseInt(eSec)}`;
+            }
+            else {
+                eTime.innerHTML = `${eMinent}:${parseInt(eSec)}`;
+            }
+        }, 200);
     }
 }
 playArticle();
@@ -114,13 +124,12 @@ var artist = document.querySelector(".artist");
 var imgs = document.querySelector(".record img");
 var ons = document.querySelector(".fa-backward");
 var nexts = document.querySelector(".fa-forward");
-var musicIndex = 0;
 
 // 上一首
-ons.onclick = function () {
+var musicIndex = 0;
+ons.onclick = () => {
     musicIndex--;
-    if (musicIndex < 0)//如果音乐索引超过长度，将音乐索引清零
-    {
+    if (musicIndex < 0) {
         musicIndex = 0;
     }
     getMusic();
@@ -129,7 +138,7 @@ ons.onclick = function () {
 }
 
 // 下一首
-nexts.onclick = function () {
+nexts.onclick = () => {
     musicIndex++;
     // console.log(musics[musicIndex].url);
     if (musicIndex >= musics.length)//如果音乐索引超过长度，将音乐索引清零
