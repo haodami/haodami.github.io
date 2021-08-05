@@ -1,0 +1,87 @@
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.tab .wu {
+    width: 200px;
+    height: 200px;
+    background-image: url("./img/07.jpg");
+    background-size: 600px 600px;
+}
+
+#tu1 {
+    background-position: 0 0;
+}
+
+#tu2 {
+    background-position: 400px 0;
+}
+
+#tu3 {
+    background-position: 200px 0;
+}
+
+#tu4 {
+    background-position: 0 400px;
+}
+
+#tu5 {
+    background-position: 400px 400px;
+}
+
+#tu6 {
+    background-position: 200px 400px;
+}
+
+#tu7 {
+    background-position: 0 200px;
+}
+
+#tu8 {
+    background-position: 400px 200px;
+}
+
+#tu9 {
+    background-position: 200px 200px;
+}
+
+.btn {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: 15%;
+    top: 30%;
+}
+.btn button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 160px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.btn button:nth-child(2) {
+    margin-top: 40px;
+}
+
+.right {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 5%;
+    right: 50%;
+    margin-right: -600px;
+}
+.right .tit {
+    text-align: center;
+    font-size: 24px;
+}
+.right img {
+    width: 150px;
+    height: 150px;
+}
