@@ -38,7 +38,7 @@ body .box form .div-one {
 body .box form .div-one .input-icon {
   position: absolute;
   top: 0;
-  left: 25px;
+  left: 13px;
   height: 48px;
   font-size: 24px;
   line-height: 48px;
@@ -82,7 +82,7 @@ body .box form a:hover {
 }
 body .box form input {
   display: block;
-  width: 80%;
+  width: 86%;
   background-color: #1f2029;
   border: none;
   outline: none;
