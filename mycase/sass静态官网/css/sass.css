@@ -1,0 +1,210 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+body {
+	min-width: 1200px;
+}
+header {
+	display: flex;
+	justify-content: center;
+	line-height: 3;
+	top: 0;
+	right: 0;
+	left: 0;
+	background-color: #cc6699;
+	color: #e8e8e8;
+	position: fixed;
+}
+
+header .left,
+.right {
+	display: flex;
+	cursor: pointer;
+}
+.left {
+	width: 320px
+}
+.right {
+	width: 950px;
+}
+header ul.left li {
+	margin-right: 30px;
+	font-size: 20px;
+}
+
+header ul.left li:hover {
+	color: white;
+}
+
+header ul.right li {
+	margin-left: 44px;
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+header ul.right li:hover {
+	color: white;
+}
+
+.one ul {
+	display: none;
+	width: 200px;
+	height: 100px;
+	flex-direction: column;
+	background-color: white;
+	color: black;
+	text-align: center;
+	position: absolute;
+}
+
+header .right>li:hover ul {
+	display: block;
+}
+
+ul {
+	list-style: none;
+}
+
+.logo {
+	margin-top: 30px;
+	padding-top: 50px;
+	display: flex;
+	background-color: #cc6699;
+	justify-content: center;
+}
+
+.little {
+	display: flex;
+	justify-content: center;
+	font-size: 26px;
+	padding: 30px;
+	color: #ffffff;
+	background-color: #cc6699;
+}
+
+.download {
+	display: flex;
+	justify-content: center;
+	background-color: #cc6699;
+	padding-bottom: 50px;
+}
+
+.download span {
+	width: 120px;
+	height: 40px;
+	line-height: 38px;
+	font-size: 22px;
+	text-align: center;
+	color: #efbfbf;
+	border: 3px solid #efbfbf;
+}
+
+.download span:hover {
+	cursor: pointer;
+	color: white;
+	border: 3px solid white;
+}
+
+
+/*----------------------*/
+.box {
+	padding-top: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	width: 1300px;
+	height: 430px;
+}
+.box div {
+	padding: 20px;
+	display: flex;
+	height: 200px;
+	width: 385px;
+	flex-wrap: wrap;
+}
+
+.box h2 {
+	font-size: 36px;
+	height: 50px;
+	font-weight: 500;
+}
+
+.box p {
+	font-size: 20px;
+	height: 80px;
+	color: #333;
+}
+
+.box .row6 span {
+	color: #cc6699;
+}
+
+.box .row6 span:hover {
+	cursor: pointer;
+	color: #333;
+}
+
+
+/*------------------------*/
+.box1 {
+	display: flex;
+	justify-content: center;
+}
+
+.pan {
+	padding: 30px;
+}
+
+.pan h2 {
+	font-size: 32px;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+
+.pan p {
+	margin-left: -30px;
+}
+
+.box2 {
+	display: flex;
+	justify-content: center;
+}
+
+.box2 img {
+	padding: 0 15px;
+	cursor: pointer;
+}
+
+.box3 {
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.box3 img {
+	cursor: pointer;
+}
+
+
+/*--------------------------*/
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eee;
+}
+footer .box4 {
+   width: 600px;
+    line-height: 25px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #aaaaaa;
+}
+footer .box4 .bian:hover {
+	color: #cc6699;
+	cursor: pointer;
+}
