@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        .box{
+            width: 994px;
+            margin-top: 50px;
+            margin-left: 60px;
+            position: relative;
+        }
+        .box .small_box{
+            width: 450px;
+            height: 450px;
+            border:1px solid #eeeeee;
+            position:relative;
+        }
+        .box .small_box .mask{
+            width: 300px;
+            height: 300px;
+            background: #000;
+            background: #fede4f;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* 鼠标指针改为移动 */
+            cursor: move;
+            /* 隐藏元素 */
+            display:none;
+        }
+        .box .big_box{
+            width: 540px;
+            height: 540px;
+            border:1px solid #eeeeee;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            position: absolute;
+            left: 452px;
+            top: 0;
+            /* 隐藏元素 */
+            display:none;
+        }
+        .box .big_box img{
+            position: absolute;
+        }
+        .box .nav{
+            margin-top: 20px;
+        }
+        .box .nav ul li{
+            width: 54px;
+            height: 54px;
+            float: left;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        .box .nav ul li img{
+            border:2px solid transparent;
+            cursor: pointer;
+        }
+        .box .nav ul li img.active{
+            border-color:#df2a1f;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 左边小盒子 -->
+        <div class="small_box">
+            <!-- 中图图片 -->
+            <img src="images/1_middle.jpg"/>
+            <!-- 遮罩层 -->
+            <div class="mask"></div>
+        </div>
+        
+        <!-- 右边大盒子 -->
+        <div class="big_box">
+            <!-- 大图图片 -->
+            <img src="images/1_big.jpg"/>
+        </div>
+
+        <!-- 小图盒子 -->
+        <div class="nav">
+            <ul>
+                <li><img src="images/1_small.jpg" class="active"></li>
+                <li><img src="images/2_small.jpg"></li>
+                <li><img src="images/3_small.jpg"></li>
+                <li><img src="images/4_small.jpg"></li>
+                <li><img src="images/5_small.jpg"></li>
+                <li><img src="images/6_small.jpg"></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 获取相关对象
+        var small_box = document.querySelector(".small_box");
+        var smallImg = document.querySelector(".small_box img");
+
+        // small_box盒子的宽度
+        var small_boxWidth = small_box.offsetWidth - 2;
+        // small_box盒子的高度
+        var small_boxHeight = small_box.offsetHeight - 2 ;
+
+        var mask = document.querySelector(".mask");
+        var big_box = document.querySelector(".big_box");
+        var box = document.querySelector(".box");
+
+        // 获取.big_box里面的img对应的dom对象
+        var bigImg = document.querySelector(".big_box img");
+
+        // 1. 鼠标移入.small_box时候,显示遮罩层.mask,和右侧.big_box大图层
+        small_box.onmouseover = function(){
+            mask.style.display = "block";
+            big_box.style.display = "block";
+        }
+
+        // 2. 鼠标移出.small_box时候,隐藏遮罩层.mask,和右侧.big_box大图层
+        small_box.onmouseout = function(){
+            mask.style.display = "none";
+            big_box.style.display = "none";
+        }
+
+        // 3. 鼠标在.small_box移动的时候, 遮罩层会跟随鼠标在..small_box盒子内部移动
+        small_box.onmousemove = function( e ){
+            // 遮罩层的宽度
+            var maskWidth = mask.offsetWidth;
+            // 遮罩层的高度
+            var maskHeight = mask.offsetHeight;
+
+            // 获取鼠标在盒子内的坐标
+            var maskX = e.pageX - box.offsetLeft;
+            var maskY = e.pageY - box.offsetTop;
+
+            // 鼠标移动到遮罩层的中间
+            maskX = maskX - (maskWidth/2);
+            if( maskX < 0 ){// 水平左右边界判断
+                maskX = 0;
+            }else if( maskX > small_boxWidth - maskWidth ){
+                maskX = small_boxWidth - maskWidth;
+            }
+
+            maskY = maskY - (maskHeight/2);
+            if( maskY < 0 ){// 垂直上下边界判断
+                maskY = 0;
+            }else if( maskY > small_boxHeight - maskHeight ){
+                maskY = small_boxHeight - maskHeight;
+            }
+
+            // 设置遮罩层的偏移量
+            mask.style.left = maskX + "px";
+            mask.style.top = maskY + "px";
+
+
+            // 4.  鼠标在.small_box盒子移动的时候,不仅仅要改变遮罩层的位置,还要改变.big_box层中img图片的位置(需要计算比例)
+
+            /* 
+                公式:
+                遮罩层移动距离√           大图移动的距离  ? 
+                __________________   =  _________________
+                遮罩层最大移动距离√        大图最大移动距离(可求)
+            */
+            // 大图移动的距离 = (遮罩层移动距离 * 大图最大移动距离)/遮罩层最大移动距离
+
+            // .bigBox的宽度
+            var bigBoxWidth = big_box.offsetWidth - 2;
+            // .bigBox里面img图片的宽度
+            var bigImgWidth = bigImg.offsetWidth;
+            // 大图最大移动的水平距离
+            var bigImgMaxLeft = bigImgWidth - bigBoxWidth;
+
+            // 大图移动的x坐标
+            var bigImgX = ( maskX * bigImgMaxLeft ) / (small_boxWidth - maskWidth);
+
+
+            // .bigBox的高度
+            var bigBoxHeight = big_box.offsetHeight - 2;
+            // .bigBox里面img图片的高度
+            var bigImgHeight = bigImg.offsetHeight;
+            // 大图最大移动的垂直距离
+            var bigImgMaxTop = bigImgHeight - bigBoxHeight;
+
+            // 大图移动的y坐标
+            var bigImgY = ( maskY * bigImgMaxTop ) / (small_boxHeight - maskHeight);
+
+            // 设置大图片的偏移量
+            bigImg.style.left = -bigImgX + "px";
+            bigImg.style.top = -bigImgY + "px";
+        }
+
+        // 5. 鼠标移入.nav ul li img的时候,当前图片添加.active类
+        var navImgs = document.querySelectorAll(".nav ul li img");
+        for(var i = 0;  i < navImgs.length; i++ ){
+            navImgs[i].setAttribute("data-index" , i+1 ); 
+
+            navImgs[i].onmouseover = function(){
+                for(var j = 0; j < navImgs.length; j++ ){
+                    navImgs[j].classList.remove("active");
+                }
+                this.classList.add("active");
+
+
+                var currentImgIndex = this.getAttribute("data-index");
+                
+                // 更换.small_box中的img图片src路径
+                smallImg.src = "images/"+currentImgIndex+"_middle.jpg"; 
+                // 更换.big_box中的img图片src路径
+                bigImg.src = "images/"+currentImgIndex+"_big.jpg";
+            }
+        }
+    </script>
+</body>
+</html>
