@@ -1,150 +1,145 @@
 html {
-	background: url("img/bj.jpg");
-	height: 100%;
-	background-size: 100% 100%;
+    background: url("img/bj.jpg");
+    height: 100%;
+    background-size: 100% 100%;
 }
 
 body {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .main {
-	width: 360px;
-	height: 360px;
-	margin: 100px auto;
-	position: relative;
+    width: 360px;
+    height: 360px;
+    margin: 200px auto;
+    position: relative;
 }
 
 .box {
-	width: 320px;
-	height: 320px;
-	margin: 150px auto;
-	position: relative;
-	transform-style: preserve-3d;
-	transform: rotateX(30deg) rotateY(-20deg);
-	animation: round 10s linear infinite;
+    width: 320px;
+    height: 320px;
+    margin: 150px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) rotateY(-20deg);
+    animation: round 10s linear infinite;
 }
 
 @keyframes round {
-	0% {
-		transform: rotateX(0deg) rotateY(0deg);
-	}
-	100% {
-		transform: rotateX(360deg) rotateY(360deg);
-	}
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
 }
-
 
 /*==================*/
 
 .box div {
-	position: absolute;
-	width: 320px;
-	height: 320px;
-	/*background: #fff;*/
-	opacity: 0.8;
-	transition: all 0.4s;
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    /*background: #fff;*/
+    opacity: 0.8;
+    transition: all 0.4s;
 }
 
 .pic {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
-
 
 /*===================*/
 
 .font {
-	transform: rotateY(0deg) translateZ(160px);
+    transform: rotateY(0deg) translateZ(160px);
 }
 
 .back {
-	transform: rotateY(180deg) translateZ(160px);
+    transform: rotateY(180deg) translateZ(160px);
 }
 
 .left {
-	transform: rotateY(-90deg) translateZ(160px);
+    transform: rotateY(-90deg) translateZ(160px);
 }
 
 .right {
-	transform: rotateY(90deg) translateZ(160px);
+    transform: rotateY(90deg) translateZ(160px);
 }
 
 .top {
-	transform: rotateX(90deg) translateZ(160px);
+    transform: rotateX(90deg) translateZ(160px);
 }
 
 .bottom {
-	transform: rotateX(-90deg) translateZ(160px);
+    transform: rotateX(-90deg) translateZ(160px);
 }
-
 
 /*======================*/
 
 .box span {
-	display: block;
-	width: 150px;
-	height: 150px;
-	position: absolute;
-	top: 85px;
-	left: 85px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 85px;
+    left: 85px;
 }
 
 .s_pic {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
-
 
 /*========================*/
 
 .s_font {
-	transform: rotateY(0deg) translateZ(75px);
+    transform: rotateY(0deg) translateZ(75px);
 }
 
 .s_back {
-	transform: rotateY(180deg) translateZ(75px);
+    transform: rotateY(180deg) translateZ(75px);
 }
 
 .s_left {
-	transform: rotateY(-90deg) translateZ(75px);
+    transform: rotateY(-90deg) translateZ(75px);
 }
 
 .s_right {
-	transform: rotateY(90deg) translateZ(75px);
+    transform: rotateY(90deg) translateZ(75px);
 }
 
 .s_top {
-	transform: rotateX(90deg) translateZ(75px);
+    transform: rotateX(90deg) translateZ(75px);
 }
 
 .s_bottom {
-	transform: rotateX(-90deg) translateZ(75px);
+    transform: rotateX(-90deg) translateZ(75px);
 }
-
 
 /*=======================*/
 
 .box:hover .font {
-	transform: translateZ(300px);
+    transform: translateZ(300px);
 }
 
 .box:hover .back {
-	transform: rotateY(180deg) translateZ(270px);
+    transform: rotateY(180deg) translateZ(270px);
 }
 
 .box:hover .left {
-	transform: rotateY(-90deg) translateZ(270px);
+    transform: rotateY(-90deg) translateZ(270px);
 }
 
 .box:hover .right {
-	transform: rotateY(90deg) translateZ(270px);
+    transform: rotateY(90deg) translateZ(270px);
 }
 
 .box:hover .top {
-	transform: rotateX(90deg) translateZ(270px);
+    transform: rotateX(90deg) translateZ(270px);
 }
 
 .box:hover .bottom {
-	transform: rotateX(-90deg) translateZ(270px);
+    transform: rotateX(-90deg) translateZ(270px);
 }
